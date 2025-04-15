@@ -1,0 +1,207 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation styles */
+nav {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+.links {
+    display: flex;
+    gap: 30px;
+}
+
+.links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.links a:hover {
+    color: #8a2be2;
+}
+
+.links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #8a2be2;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.links a:hover::after {
+    width: 100%;
+}
+
+/* Main section styles */
+section {
+    padding: 120px 10% 60px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.image {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.image img {
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.image img:hover {
+    transform: scale(1.03);
+}
+
+.content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.content span {
+    color: #8a2be2;
+    position: relative;
+}
+
+.content span::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    background: rgba(138, 43, 226, 0.2);
+    bottom: 5px;
+    left: 0;
+    z-index: -1;
+}
+
+.content p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        padding: 15px 5%;
+    }
+    
+    .logo {
+        margin-bottom: 15px;
+    }
+    
+    .links {
+        gap: 15px;
+    }
+    
+    .main-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .content h1 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 100px 5% 40px;
+    }
+}
+
+/* Styling for the highlighted text "WEB PROGRAMMING" */
+.highlight-text {
+    font-weight: 800;
+    font-size: 1.2em;
+    display: inline-block;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b, #ffcb80, #88d3ce);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Hover effect */
+  .highlight-text:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Class for when JavaScript adds the animated class */
+  .highlight-text.animated {
+    animation: pulse 2s infinite;
+  }
