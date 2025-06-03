@@ -3,50 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bout Me</title>
+    <title>Blog - Rilly's Interactive Pages</title>
     <link rel="stylesheet" href="style3.css">
 </head>
 <body>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Background Particles -->
+    <div class="bg-particles" id="particles"></div>
+
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">RILLY'S PAGES</div>
+            <div class="logo">bonjouRilly!</div>
             <div class="links">
                 <a href="index.html">Home</a>
                 <a href="gallery.html">Gallery</a>
-                <a href="blogs.html">Blog</a>
+                <a href="blogs.html" class="active">Blog</a>
                 <a href="contacts.html">Contact</a>
             </div>
         </div>
     </nav>
 
+    <!-- Blog Container -->
     <section class="blog-container">
         <h1>BLOGS</h1>
 
-        <!-- Mental Health Section -->
-        <article class="blog-post">
-            <h2>Mental Health Issues: Articles</h2>
-                <p>
-                    Mental health is an often-overlooked aspect, yet it is crucial in our lives.  
-                    From stress to anxiety, many factors can affect our mental well-being.  
-                    Let's explore some ways to maintain good mental health!
-                </p>
-                <p>
-                    1. Most B.C. youth aren't exercising enough and it's linked to mental-health problems: UBC study
-                </p>
-                <a href="https://www.msn.com/en-ca/health/other/most-b-c-youth-aren-t-exercising-enough-and-it-s-linked-to-mental-health-problems-ubc-study/ar-AA1Aweud?ocid=BingNewsVerp" target="_blank">Full Article here..</a>
-                <p>
-                    2. Can Music Help With Mental Health Issues?
-                </p>
-                <a href="https://www.kqed.org/news/12030264/can-music-help-with-mental-health-issues" target="_blank">Full Article here..</a>
-                <p>
-                    3. Do animals suffer mental health problems?
-                </p>
-                <a href="https://www.livescience.com/animals/do-animals-suffer-mental-health-problems" target="_blank">Full Article here..</a>
-                <p>
-                    4. Kesehatan Mental dan Fisik Harus Seimbang untuk Hidup Sehat
-                </p>
-                <a href="https://timesindonesia.co.id/kesehatan/527898/kesehatan-mental-dan-fisik-harus-seimbang-untuk-hidup-sehat" target="_blank">Full Article here..</a>
-        </article>
+<!-- Mental Health Section -->
+<article class="blog-post">
+    <h2>Mental Health Issues: Articles</h2>
+    <p style="text-align: justify;">
+        Mental health is an often-overlooked aspect, yet it is crucial in our lives.  
+        From stress to anxiety, many factors can affect our mental well-being.  
+        Let's explore some ways to maintain good mental health!
+    </p>
+    
+    <div class="image">
+        <img src="Photos/Blog1_Most Children.jpeg" width="200" height="180" alt="Youth Exercise and Mental Health">
+        <p style="text-align: justify;">
+            <a href="https://www.msn.com/en-ca/health/other/most-b-c-youth-aren-t-exercising-enough-and-it-s-linked-to-mental-health-problems-ubc-study/ar-AA1Aweud?ocid=BingNewsVerp" target="_blank">
+                Most B.C. youth aren't exercising enough and it's linked to mental-health problems: UBC study
+            </a> A recent study by the University of British Columbia reveals that a significant number of youths in British Columbia are not meeting Canada's recommended guidelines for daily physical activity, sleep, and screen time. Specifically, only 4% of surveyed students in grades 6 to 8 adhere to all three recommendations: at least one hour of physical activity, 8–10 hours of sleep, and no more than two hours of recreational screen time per day. The study highlights that excessive screen time is the most significant barrier, with only 14% meeting the screen time guideline. Importantly, youths who meet more of these guidelines report better mental health outcomes, including higher life satisfaction and fewer depressive symptoms. The findings underscore the need for interventions that promote balanced daily routines to enhance the well-being of young individuals .
+        </p>
+    </div>
+    
+    <div class="image">
+        <img src="Photos/Blog2 Music Heals.jpeg" width="180" height="180" alt="Music and Mental Health">
+        <p style="text-align: justify;">
+            <a href="https://www.kqed.org/news/12030264/can-music-help-with-mental-health-issues" target="_blank">
+                Can Music Help With Mental Health Issues?
+            </a> 
+            The KQED article delves into the emerging field of using music as a form of therapy for mental health conditions. It highlights initiatives like Sona Labs, a Los Angeles-based company aiming to have its music treatments approved by the FDA for conditions such as generalized anxiety disorder. These treatments involve specially composed music designed to stimulate brain activity associated with relaxation and stress reduction. The piece also references studies indicating that listening to certain genres, like improvisational jazz, can alleviate symptoms of pain and anxiety. This underscores the potential of music not just as entertainment, but as a viable component in mental health care strategies.
+        </p>
+    </div>
+    
+    <div class="image">
+        <img src="Photos/Blog3 Animals.webp" width="200" height="180" alt="Animals Mental Health">
+        <p style="text-align: justify;">
+            <a href="https://www.livescience.com/animals/do-animals-suffer-mental-health-problems" target="_blank">
+                Do animals suffer mental health problems?
+            </a> 
+            Animals, much like humans, can experience mental health challenges. According to a Live Science article, animals may develop psychological issues due to genetic or developmental factors, as well as environmental stressors. For instance, pets like dogs and cats can exhibit signs of cognitive dysfunction as they age, resembling human conditions such as Alzheimer's disease. Moreover, animals exposed to traumatic events or deprived of natural behaviors—common in captivity—can develop stress-related disorders. Recognizing these issues is crucial for ensuring the well-being of animals across various settings.
+        </p>
+    </div>
+    
+    <div class="image">
+        <img src="Photos/Blog4 Kesehatan-Mental.jpg" width="170" height="180" alt="Kesehatan Mental dan Fisik">
+        <p style="text-align: justify;">
+            <a href="https://timesindonesia.co.id/kesehatan/527898/kesehatan-mental-dan-fisik-harus-seimbang-untuk-hidup-sehat" target="_blank">
+                Kesehatan Mental dan Fisik Harus Seimbang untuk Hidup Sehat
+            </a> This article emphasizes the importance of maintaining both mental and physical health to achieve overall well-being. Clinical psychologist Nena Mawar Sari highlights that poor mental health can lead to physical issues, such as stress-induced inflammation and hormonal imbalances. Conversely, physical ailments can negatively impact mental health, especially in individuals with chronic illnesses. The Indonesian government's initiative to include mental health screenings in free health check-up programs is a proactive step towards early detection and intervention, aiming to reduce the prevalence of depression and suicide rates.
+        </p>
+    </div>
+</article>
 
         <!-- Favorite Books Section -->
         <article class="blog-post">
@@ -57,21 +93,21 @@
                 Curious about the list? Check it out here!
             </p>
             <div class="image">
-                <img src="Photos/GOOD BAD HABITS.jpg" width="150" height="180" alt="My Photo">
-                <p> Through this book, habits and routines are two different things. 
-                    A habit is something a person does repeatedly, often unconsciously, whereas a routine is an action performed based on the same pattern and in a specific order. </p>
+                <img src="Photos/GOOD BAD HABITS.jpg" width="150" height="180" alt="Good Bad Habits Book">
+                <p style="text-align: justify;">Through this book, habits and routines are two different things. 
+                    A habit is something a person does repeatedly, often unconsciously, whereas a routine is an action performed based on the same pattern and in a specific order.</p>
             </div>
             <div class="image">
-                <img src="Photos/PRINCIPLES POWER.jpg" width="150" height="180" alt="My Photo">
-                <p> As humans, we naturally desire to be influential and respected. 
+                <img src="Photos/PRINCIPLES POWER.jpg" width="150" height="180" alt="Principles Power Book">
+                <p style="text-align: justify;">As humans, we naturally desire to be influential and respected. 
                     Fortunately, we don't need to enter the political world full of intrigue to achieve it. 
                     This book clearly summarizes powerful strategies for gaining influence, with proven results. 
                     Inside, readers can learn valuable lessons through inspiring stories and practical tips on becoming a person of influence, 
                     enabling us to impact others.</p>
             </div>
             <div class="image">
-                <img src="Photos/SEMUA ORANG BISA SELF HEALING.webp" width="150" height="180" alt="My Photo">
-                <p> Easily heal yourself and others, achieve happiness and success. 
+                <img src="Photos/SEMUA ORANG BISA SELF HEALING.webp" width="150" height="180" alt="Self Healing Book">
+                <p style="text-align: justify;">Easily heal yourself and others, achieve happiness and success. 
                     Change what we believe about who we are, free ourselves from burdens that cause life's pressures, and more.</p>
             </div>
         </article>
@@ -84,25 +120,39 @@
                 I always find comfort in my favorite playlists.  
                 Want to know the songs I listen to the most?
             </p>
-            <img src="Photos/BROKEN VESSELS.jpg" width="300" height="290" alt="My Photo">
+            <img src="Photos/BROKEN VESSELS.jpg" width="300" height="290" alt="Broken Vessels Album">
             <p>Broken Vessels by Hillsong Worship, TAYA</p>
-            <a href="https://open.spotify.com/track/2BuhGnXpqMQ8BvOUZpmaVl?si=c434f754d4934b96">Listen to it here..</a>
+            <a href="https://open.spotify.com/track/2BuhGnXpqMQ8BvOUZpmaVl?si=c434f754d4934b96" target="_blank">Listen to it here..</a>
 
-            <img src="Photos/SESUATU DI JOGJA.png" width="300" height="290" alt="My Photo">
+            <img src="Photos/SESUATU DI JOGJA.png" width="300" height="290" alt="Sesuatu di Jogja Album">
             <p>Sesuatu di Jogja by Adhitia Sofyan</p>
-            <a href="https://open.spotify.com/track/0MAIxtXWimwhAAQOST9jp7?si=7b53ac6002b64f4a">Listen to it here..</a>
+            <a href="https://open.spotify.com/track/0MAIxtXWimwhAAQOST9jp7?si=7b53ac6002b64f4a" target="_blank">Listen to it here..</a>
 
-            <img src="Photos/HOME.png" width="300" height="290" alt="My Photo">
+            <img src="Photos/HOME.png" width="300" height="290" alt="HOME Album">
             <p>HOME by Luke Chiang</p>
-            <a href="https://open.spotify.com/track/71nnhckUPfuphvyYJx6l01?si=cb33fd6c498d430d">Listen to it here..</a>
+            <a href="https://open.spotify.com/track/71nnhckUPfuphvyYJx6l01?si=cb33fd6c498d430d" target="_blank">Listen to it here..</a>
         </article>
     </section>
 
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <div class="fab" id="scrollTop" title="Back to Top">
+            <svg viewBox="0 0 24 24">
+                <path d="M7 14l5-5 5 5z"/>
+            </svg>
+        </div>
+        <div class="fab" id="surpriseMe" title="Surprise Me!">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.28 8.35L12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7.91 14.14 3 9.27l6.91-1.01L12 2z"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 RILLY'S PAGES. All rights reserved.</p>
+        <p>&copy; 2025 Brilliani Jeshia Potalangi. All rights reserved. Made with ❤️</p>
     </footer>
-    
-    <!-- JavaScript file link -->
+
     <script src="script3.js"></script>
 </body>
 </html>

@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rilly's Pages</title>
+    <title>Rilly's Interactive Pages</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Background Particles -->
+    <div class="bg-particles" id="particles"></div>
+
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">RILLY'S PAGES</div>
+            <div class="logo">bonjouRilly!</div>
             <div class="links">
                 <a href="index.html">Home</a>
                 <a href="gallery.html">Gallery</a>
@@ -18,25 +27,42 @@
             </div>
         </div>
     </nav>
-    <section>
+
+    <!-- Main Section -->
+    <section id="home">
         <div class="main-container">
             <div class="image">
-                <img src="Photos/IMG_20241225_120943.jpg" width="300" height="350" alt="My Photo">
+                <img src="Photos/IMG-20250603-WA0009.jpg" 
+                     alt="Brilliani Jeshia Potalangi" 
+                     id="profileImg"
+                     width="400" 
+                     height="450">
             </div>
             <div class="content">
-                <h1>HOLA! I'M <span>BRILLIANI JESHIA POTALANGI 🐻🌹</span></h1>
-                <p>I'm passionate about Mental Issues, Books and Music Enthusiast! Welcome to my Personal Page! Tech student vibing at UNSRAT here - built this website for my <span class="highlight-text">WEB PROGRAMMING</span> tasks!
-                </p>
+                <h1>HOLA! I'M <span id="nameSpan">BRILLIANI JESHIA POTALANGI</span></h1>
+                <p>Welcome to my little corner of the INTERNET, Peeps! 🌿</p>
+                <p style="text-align: justify;">
+I'm a tech student at UNSRAT, deeply passionate about mental well-being, books that spark thoughts, and music that speaks emotions. This site? A blend of code and soul — created not just for my <span class="highlight-text" id="highlightText">WEB PROGRAMMING</span> assignment, but as a digital space where I can express who I am, what I care about, and what I'm learning along the way.
+
+Whether you're here out of curiosity or by happy accident, I hope you find something that resonates. Feel free to look around and get to know the heart behind the HTML. 💻📚🎶</p>
+                
+                <div class="skills">
+                    <div class="skill-tag">💭 Follows Mental Health issues. INTJ girl</div>
+                    <div class="skill-tag">📚 Book Lover</div>
+                    <div class="skill-tag">🎵 Music Enthusiast</div>
+                    <div class="skill-tag">💻 Tech Student</div>
+                    <div class="skill-tag">🌟 UNSRAT</div>
+                </div>
             </div>
         </div>
     </section>
-    <footer>
-        <p>&copy; 2025 My Portfolio. All rights reserved.</p>
-    </footer>
-</body>
-</html>
 
- <!-- JavaScript file link -->
- <script src="script.js"></script>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Brilliani Jeshia Potalangi. All rights reserved. Made with ❤️</p>
+    </footer>
+
+    <!-- JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>

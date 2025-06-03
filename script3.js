@@ -1,180 +1,202 @@
-// Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Add active class to current page link
-    const currentPage = window.location.pathname.split('/').pop();
-    const navLinks = document.querySelectorAll('nav a');
-    
-    navLinks.forEach(link => {
-        const linkPage = link.getAttribute('href');
-        if (linkPage === currentPage) {
-            link.classList.add('active');
-            link.style.color = '#8a2be2';
-        }
-    });
-    
-    // Add scroll reveal effect for blog posts
-    const blogPosts = document.querySelectorAll('.blog-post');
-    
-    // Create observer for scroll animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.2
-    });
-    
-    // Add animation classes and observe elements
-    blogPosts.forEach((post, index) => {
-        post.style.opacity = '0';
-        post.style.transform = 'translateY(30px)';
-        post.style.transition = `opacity 0.6s ease, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(post);
-    });
-    
-    // Add animation styles
-    const style = document.createElement('style');
-    style.textContent = `
-        .blog-post.visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-        
-        .blog-post h2 {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .blog-post h2::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: #f9f9f9;
-            left: 0;
-            top: 0;
-            transform: translateX(-100%);
-            animation: revealText 0.8s ease forwards;
-        }
-        
-        @keyframes revealText {
-            to {
-                transform: translateX(100%);
-            }
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // Add click event for images to open in larger view
-    const images = document.querySelectorAll('.blog-post img');
-    
-    // Create modal elements for image preview
-    const modal = document.createElement('div');
-    modal.className = 'image-modal';
-    modal.style.cssText = `
-        display: none;
-        position: fixed;
-        z-index: 1100;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    `;
-    
-    const modalImg = document.createElement('img');
-    modalImg.className = 'modal-image';
-    modalImg.style.cssText = `
-        max-width: 90%;
-        max-height: 90%;
-        border-radius: 8px;
-    `;
-    
-    const closeBtn = document.createElement('span');
-    closeBtn.className = 'modal-close';
-    closeBtn.innerHTML = '&times;';
-    closeBtn.style.cssText = `
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        color: #fff;
-        font-size: 40px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: 0.3s;
-    `;
-    
-    modal.appendChild(modalImg);
-    modal.appendChild(closeBtn);
-    document.body.appendChild(modal);
-    
-    // Add click event to all images
-    images.forEach(img => {
-        img.style.cursor = 'pointer';
-        
-        img.addEventListener('click', function() {
-            modal.style.display = 'flex';
-            setTimeout(() => {
-                modal.style.opacity = '1';
-            }, 10);
-            modalImg.src = this.src;
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        });
-    });
-    
-    // Close modal events
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
-    
-    // Close with escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === 'flex') {
-            closeModal();
-        }
-    });
-    
-    function closeModal() {
-        modal.style.opacity = '0';
+// Loading Screen
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('loader').style.opacity = '0';
         setTimeout(() => {
-            modal.style.display = 'none';
-            document.body.style.overflow = ''; // Restore scrolling
-        }, 300);
+            document.getElementById('loader').style.display = 'none';
+        }, 800);
+    }, 1500);
+});
+
+// Progress Bar
+window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+// Background Particles
+function createParticles() {
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        const isstar = Math.random() > 0.7;
+        
+        if (isstar) {
+            particle.className = 'star';
+            particle.style.width = Math.random() * 8 + 4 + 'px';
+            particle.style.height = particle.style.width;
+        } else {
+            particle.className = 'particle';
+            particle.style.width = Math.random() * 12 + 4 + 'px';
+            particle.style.height = particle.style.width;
+        }
+        
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 8 + 's';
+        particle.style.animationDuration = (Math.random() * 6 + 4) + 's';
+        
+        particlesContainer.appendChild(particle);
     }
-    
-    // Add hover effect for links
-    const links = document.querySelectorAll('.blog-post a');
-    links.forEach(link => {
-        link.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateX(5px)';
-        });
-        
-        link.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateX(0)';
-        });
-    });
-    
-    // Add book image hover effect
-    const bookImages = document.querySelectorAll('.blog-post .image img');
-    bookImages.forEach(img => {
-        img.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.1) rotate(3deg)';
-            this.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.2)';
-        });
-        
-        img.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1) rotate(0)';
-            this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-        });
+}
+createParticles();
+
+// Scroll to Top FAB
+document.getElementById('scrollTop').addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
 });
+
+// Surprise Me FAB
+const surprises = [
+    () => {
+        document.body.style.animation = 'shake 0.5s ease-in-out';
+        setTimeout(() => document.body.style.animation = '', 500);
+    },
+    () => {
+        const posts = document.querySelectorAll('.blog-post');
+        posts.forEach((post, index) => {
+            setTimeout(() => {
+                post.style.animation = 'bounce 1s ease';
+                setTimeout(() => post.style.animation = '', 1000);
+            }, index * 200);
+        });
+    },
+    () => {
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.style.transform = 'rotate(360deg) scale(1.1)';
+            setTimeout(() => img.style.transform = '', 1000);
+        });
+    },
+    () => {
+        document.body.style.filter = 'hue-rotate(180deg)';
+        setTimeout(() => document.body.style.filter = '', 2000);
+    }
+];
+
+document.getElementById('surpriseMe').addEventListener('click', () => {
+    const randomSurprise = surprises[Math.floor(Math.random() * surprises.length)];
+    randomSurprise();
+});
+
+// Ripple Effect
+function createRipple(event) {
+    const button = event.currentTarget;
+    const circle = document.createElement('span');
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+    circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+    circle.classList.add('ripple');
+
+    const ripple = button.getElementsByClassName('ripple')[0];
+    if (ripple) {
+        ripple.remove();
+    }
+
+    button.appendChild(circle);
+}
+
+const buttons = document.querySelectorAll('.fab, .links a, .blog-post a');
+buttons.forEach(button => {
+    button.addEventListener('click', createRipple);
+});
+
+// Enhanced Scroll Animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.blog-post, .image').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'all 0.8s ease-out';
+    observer.observe(el);
+});
+
+// Dynamic Navigation Background
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 100) {
+        nav.style.background = 'rgba(139, 69, 19, 0.95)';
+        nav.style.backdropFilter = 'blur(25px)';
+    } else {
+        nav.style.background = 'rgba(139, 69, 19, 0.9)';
+        nav.style.backdropFilter = 'blur(20px)';
+    }
+});
+
+// Image Lazy Loading Effect
+const images = document.querySelectorAll('img');
+images.forEach(img => {
+    img.addEventListener('load', () => {
+        img.style.opacity = '1';
+        img.style.transform = 'scale(1)';
+    });
+    
+    img.style.opacity = '0';
+    img.style.transform = 'scale(0.8)';
+    img.style.transition = 'all 0.5s ease';
+});
+
+// Enhanced Hover Effects for Blog Posts
+document.querySelectorAll('.blog-post').forEach(post => {
+    post.addEventListener('mouseenter', () => {
+        post.style.background = 'rgba(205, 133, 63, 0.6)';
+        post.style.borderColor = 'rgba(245, 222, 179, 0.9)';
+    });
+    
+    post.addEventListener('mouseleave', () => {
+        post.style.background = 'rgba(139, 69, 19, 0.4)';
+        post.style.borderColor = 'rgba(205, 133, 63, 0.5)';
+    });
+});
+
+// Pulse Animation for FABs
+setInterval(() => {
+    document.querySelectorAll('.fab').forEach(fab => {
+        fab.classList.add('pulse');
+        setTimeout(() => fab.classList.remove('pulse'), 2000);
+    });
+}, 5000);
+
+// Music Section Special Effects
+const musicSection = document.querySelector('.blog-post:last-of-type');
+if (musicSection) {
+    musicSection.addEventListener('mouseenter', () => {
+        const musicImages = musicSection.querySelectorAll('img');
+        musicImages.forEach((img, index) => {
+            setTimeout(() => {
+                img.style.transform = 'scale(1.05) rotate(2deg)';
+                img.style.filter = 'brightness(1.1) contrast(1.1)';
+            }, index * 100);
+        });
+    });
+    
+    musicSection.addEventListener('mouseleave', () => {
+        const musicImages = musicSection.querySelectorAll('img');
+        musicImages.forEach(img => {
+            img.style.transform = 'scale(1) rotate(0deg)';
+            img.style.filter = 'sepia(20%)';
+        });
+    });
+}

@@ -3,13 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photos</title>
+    <title>Gallery - Rilly's Interactive Pages</title>
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading Memories...</div>
+        </div>
+    </div>
+
+    <!-- Background Particles -->
+    <div class="bg-particles" id="particles"></div>
+
+    <!-- Navigation -->
+  <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">RILLY'S PAGES</div>
+            <div class="logo">bonjouRilly!</div>
             <div class="links">
                 <a href="index.html">Home</a>
                 <a href="gallery.html">Gallery</a>
@@ -19,23 +32,88 @@
         </div>
     </nav>
 
+    <!-- Gallery Container -->
     <section class="gallery-container">
-        <h1>RANDOM PHOTOS COLLECTION</h1>
-        <div class="gallery-grid">
-            <img src="Photos/BCA BEASISWA foto.png" alt="Foto 1" width="300" height="320">
-            <img src="Photos/IMG_20241225_120428.jpg" alt="Foto 2" width="280" height="320">
-            <img src="Photos/IMG_7901.JPG" alt="Foto 4" width="260" height="320">
-            <img src="Photos/WhatsApp Image 2025-03-09 at 22.12.29_54c26fa2.jpg" alt="Foto 5" width="280" height="320">
-            <img src="Photos/IMG_20241225_121250.jpg" alt="Foto 3" width="280" height="320">
-            <img src="Photos/SMA GUEE.jpg" alt="Foto 6" width="300" height="320">
+        <h1 class="gallery-title" id="galleryTitle">RILLY'S GALLERY</h1>
+        
+        <!-- Filter Controls -->
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">All Photos</button>
+            <button class="filter-btn" data-filter="memories">Memories</button>
+            <button class="filter-btn" data-filter="events">Events</button>
+            <button class="filter-btn" data-filter="casual">Casual</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="galleryGrid">
+            <div class="photo-frame" data-category="events" onclick="openModal(0)">
+                <img src="Photos/BCA BEASISWA foto.png" alt="SCHOLARSHIP PROFILE">
+                <div class="photo-caption">SCHOLARSHIP PROFILE</div>
+                <div class="photo-metadata">🏆 ACHIEVEMENT SCHOLARSHIP</div>
+            </div>
+            
+            <div class="photo-frame" data-category="memories" onclick="openModal(1)">
+                <img src="Photos/IMG_20241225_120428.jpg" alt="Christmas Memory">
+                <div class="photo-caption">Fam Christmas Celebration 2024</div>
+                <div class="photo-metadata">🎄 December</div>
+            </div>
+            
+            <div class="photo-frame" data-category="casual" onclick="openModal(2)">
+                <img src="Photos/IMG-20250603-WA0005.jpg" alt="Casual Moment">
+                <div class="photo-caption">Bored Selfies</div>
+                <div class="photo-metadata">📸 Casual</div>
+            </div>
+            
+            <div class="photo-frame" data-category="casual" onclick="openModal(3)">
+                <img src="Photos/WhatsApp Image 2025-03-09 at 22.12.29_54c26fa2.jpg" alt="Spring Evening">
+                <div class="photo-caption">Feels Pretty</div>
+                <div class="photo-metadata">🌸 SpringMoment</div>
+            </div>
+            
+            <div class="photo-frame" data-category="memories" onclick="openModal(4)">
+                <img src="Photos/IMG_20241225_121250.jpg" alt="Holiday Spirit">
+                <div class="photo-caption">Holy Holy Days!</div>
+                <div class="photo-metadata">✨ Holiday</div>
+            </div>
+            
+            <div class="photo-frame" data-category="casual" onclick="openModal(5)">
+                <img src="Photos/SMA GUEE.jpg" alt="School Days">
+                <div class="photo-caption">Nostalgic School Days</div>
+                <div class="photo-metadata">🎓 School</div>
+            </div>
+
+             <div class="photo-frame" data-category="events" onclick="openModal(5)">
+                <img src="Photos/Impact Generation.jpg" alt="Youth">
+                <div class="photo-caption">My Youth #1</div>
+                <div class="photo-metadata">🎓 Services</div>
+            </div>
+
+             <div class="photo-frame" data-category="casual" onclick="openModal(5)">
+                <img src="Photos/pinguin.jpg" alt="School Days">
+                <div class="photo-caption">Cutie Peng!</div>
+                <div class="photo-metadata">🎓 Mascots</div>
+            </div>
+
         </div>
     </section>
 
+    <!-- Modal for full-size image view -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-nav modal-prev" onclick="previousImage()">‹</div>
+            <div class="modal-nav modal-next" onclick="nextImage()">›</div>
+            <img id="modalImage" src="" alt="Full size image">
+            <div class="modal-caption" id="modalCaption"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 RILLY'S PAGES. All rights reserved.</p>
+        <p>&copy; 2025 Brilliani Jeshia Potalangi. All rights reserved. Made with ❤️</p>
+        <p style="font-style: italic; margin-top: 0.5rem;">Preserving memories 📸✨</p>
     </footer>
-    
-    <!-- JavaScript file link -->
+
     <script src="script2.js"></script>
 </body>
 </html>
